@@ -18,7 +18,7 @@ public class Frame {
 		mainFrame.setSize(600, 900);
 		mainFrame.setResizable(false);
 		mainFrame.setLayout(new GridLayout());
-		mainFrame.setLocation(600, 30);
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Color orangeColor = Color.decode("#f09348");
@@ -34,14 +34,9 @@ public class Frame {
 			
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				App game = new App();
-				try{
-					game.init();	
-				}
-				catch (InterruptedException ie) {
-					System.out.println("Error. Interrupted!");
-					System.exit(0);
-				}
+				
+				Game game = new Game();
+				SwingUtilities.invokeLater(new Game());
 				//Sound.SONG.play();
 			}
 		});
@@ -55,7 +50,7 @@ public class Frame {
 				how.setSize(600, 900);
 				how.setResizable(false);
 				how.setLayout(new GridLayout());
-				how.setLocation(600, 30);
+				how.setLocationRelativeTo(null);
 				how.setVisible(true);
 
 				//make back button aron cleaner
