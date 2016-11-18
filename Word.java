@@ -6,10 +6,23 @@ import java.awt.event.KeyListener;
 
 public class Word implements KeyListener{
 
+    Lyrics lyric = new Lyrics();
+    int i = 0;
+    int j = 0;
+    String string = lyric.get(0);
+    
     public void keyTyped(KeyEvent e) {
     	//e.getKeyChar()
-    	//if else thingy	
-        System.out.println("Key typed: " + e.getKeyChar());
+    	//if else thingy
+          System.out.println("Key typed: " + e.getKeyChar());
+        if(e.getKeyChar() == string.charAt(i)){
+          System.out.println("TYPED");  
+          i++; 
+        }
+        if(i == string.length()){
+          i = 0;
+          string = lyric.get(++j);
+        }
     }
 
     public void keyPressed(KeyEvent e) {
@@ -37,3 +50,4 @@ public class Word implements KeyListener{
         panel.requestFocusInWindow();
     }
 }
+
